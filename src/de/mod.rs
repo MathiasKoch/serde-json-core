@@ -910,7 +910,7 @@ mod tests {
     fn newtype_struct() {
         #[derive(Deserialize, Debug, PartialEq)]
         struct A(pub u32);
-        
+
         assert_eq!(crate::from_str::<A>(r#"54"#).unwrap(), A(54));
     }
 
@@ -1039,6 +1039,8 @@ mod tests {
             crate::de::Error::CustomErrorWithMessage("something bad happened".into())
         );
     }
+
+
 
     #[test]
     #[cfg(feature = "custom-error-messages")]
